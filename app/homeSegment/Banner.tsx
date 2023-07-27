@@ -43,7 +43,7 @@ const Banner = () => {
           letterSpacing: '1px',
           color: '#5c5c5c'
         }}
-      >I'm Rivai Fansuri Nasution</H2>
+      >I&apos;m Rivai Fansuri Nasution</H2>
       <h3
         style={{
           margin: 0,
