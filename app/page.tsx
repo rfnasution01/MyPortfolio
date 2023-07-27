@@ -1,6 +1,7 @@
 import { Section } from "@/components/Section";
 import Banner from "./homeSegment/Banner";
 import Project from "./homeSegment/Project";
+import Experience from "./homeSegment/Experience";
 
 export default function Page() {
   return (
@@ -22,6 +23,14 @@ export default function Page() {
         }}
       >
         <Banner />
+      </Section>
+
+      <Section
+        style={{
+          padding: '10vh 0px 10vh 0px',
+        }}
+      >
+        <Experience />
       </Section>
       {/* --- Banner Project --- */}
       <Section
