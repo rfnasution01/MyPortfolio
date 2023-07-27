@@ -9,11 +9,11 @@ export type MenuNavbar = {
     },
     {
         name: "About",
-        links: "/",
+        links: "/about",
     },
     {
         name: "Resume",
-        links: "/",
+        links: "/resume",
     },  
 ];
   

@@ -3,30 +3,20 @@
 import { H3, H4 } from '@/components/headings';
 import React, { useState, useEffect } from 'react';
 import { menuNavbar } from './MenuNavbar';
-import { Nav } from '@/components/Navbar';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { Section } from '@/components/Section';
 import Image from 'next/image';
+import MenuList from './MenuList';
 
-const HeaderSection = () => {
-  const [isHover, setIsHover] = useState(false);
+interface IsMobileProps {
+  isMobile: boolean;
+}
+
+const HeaderSection : React.FC<IsMobileProps> = ({isMobile}) => {
+  const [isShow, setIsShow] = useState(false);
   const [isScroll, setIsScroll] = useState(false);
-  const [id, setId] = useState(null);
-  const pathname = usePathname();
-
-  const pathArray = pathname?.split('/') ?? [];
-  const path = pathArray[1] ?? null;
-
-  const handleMouseEnter = (item: any) => {
-    setId(item);
-    setIsHover(true);
-  };
-
-  const handleMouseLeave = (item: any) => {
-    setId(item);
-    setIsHover(false);
-  };
+  
 
   useEffect(() => {
     let prevScrollPos = window.pageYOffset;
@@ -100,29 +90,63 @@ const HeaderSection = () => {
         </H3>
       </Link>
       {/* --- Navbar --- */}
-      <Nav>
-        {menuNavbar.map((menu, idx) => (
-          <Link
-            key={idx}
-            href={menu.links}
-            onMouseEnter={() => handleMouseEnter(idx)}
-            onMouseLeave={() => handleMouseLeave(id)}
+      {
+        isMobile ? 
+          <div 
+            onClick={()=>setIsShow(true)}
             style={{
               cursor: 'pointer',
-              textDecoration: 'none',
-              margin: '8px',
-              color:
-                `/${path}` === menu.links
-                  ? '#5c5c5c'
-                  : idx === id && isHover
-                  ? '#5c5c5c'
-                  : '#bfbfbf',
             }}
           >
-            <H4>{menu.name}</H4>
-          </Link>
-        ))}
-      </Nav>
+            <Image 
+              src='/menu.png' 
+              alt="menu"
+              width={36}
+              height={36}
+            />
+          </div>
+        :
+          <MenuList isMobile={isMobile} />
+      }
+
+      {isShow && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            zIndex: 9999,
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'end',
+              padding: '13px 27px 13px 27px',
+              cursor: 'pointer',              
+            }}
+            onClick={()=>setIsShow(false)}
+          >
+            <Image
+              src="/close.png"
+              alt='Close'
+              width={36}
+              height={36}
+            />
+          </div>
+          <div 
+            style={{ 
+              color: '#fff', textAlign: 'center' 
+            }}
+          >
+            <MenuList isMobile={isMobile} />
+          </div>
+        </div>
+      )}
     </Section>
   );
 };

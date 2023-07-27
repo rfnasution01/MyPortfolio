@@ -1,6 +1,5 @@
 'use client'
 
-import { Nav } from '@/components/Navbar'
 import React, { useState } from 'react'
 import { menuAbout } from './MenuAbout'
 import Link from 'next/link'
@@ -25,7 +24,7 @@ const AboutAside = () => {
     setIsHover(false);
   };
   return (
-    <Nav 
+    <nav 
       style={{
         display: 'flex',
         flexDirection: 'column',
@@ -56,7 +55,7 @@ const AboutAside = () => {
           <H4>{menu.name}</H4>
         </Link>
       ))}
-    </Nav>
+    </nav>
   )
 }
 

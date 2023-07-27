@@ -1,4 +1,6 @@
-import { Suspense } from "react";
+'use client'
+
+import { Suspense, useEffect, useState } from "react";
 import Footer from "./homeComponent/Footer";
 import HeaderSection from "./homeComponent/Header";
 import Loading from "./loading";
@@ -9,6 +11,24 @@ export default function RootLayout({
     children: React.ReactNode
   }) {
     
+    const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const screenWidth = window.innerWidth;
+
+      setIsMobile(screenWidth < 1000);
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
     return (
       <html lang="en">
         <head>
@@ -44,7 +64,7 @@ export default function RootLayout({
         <body>
           {/* <!-- Konten header --> */}
           <header>
-            <HeaderSection />
+            <HeaderSection isMobile={isMobile} />
           </header>
           {/* <!-- Konten utama halaman --> */}
           <Suspense fallback={<Loading />}>
