@@ -1,6 +1,5 @@
 'use client'
 
-import { SvgIcon } from '@/components/SvgIcon';
 import { H3, H4 } from '@/components/headings';
 import React, { useState, useEffect } from 'react';
 import { menuNavbar } from './MenuNavbar';
@@ -8,6 +7,7 @@ import { Nav } from '@/components/Navbar';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { Section } from '@/components/Section';
+import Image from 'next/image';
 
 const HeaderSection = () => {
   const [isHover, setIsHover] = useState(false);
@@ -80,7 +80,7 @@ const HeaderSection = () => {
           gap: '8px'
         }}
       >
-        <SvgIcon
+        <Image
           src="/logo.svg"
           alt="Rivai Fansuri Nasution"
           width={40}

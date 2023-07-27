@@ -1,5 +1,6 @@
 import { Link } from '@/components/Link';
 import { H1, H2, H3, H4 } from '@/components/headings';
+import Image from 'next/image';
 import React, { useState } from 'react';
 
 interface ProjectDetailProps {
@@ -102,10 +103,11 @@ const ProjectDetail : React.FC<ProjectDetailProps> = ({item, isMobile}) => {
                   }}
                 >{skill.name}</H4>
                   
-                <img 
+                <Image 
                   src={skill.logo}
                   alt={skill.name}
                   width={20}
+                  height={20}
                 />
                   
               </div>

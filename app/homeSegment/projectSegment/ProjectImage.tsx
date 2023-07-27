@@ -1,4 +1,5 @@
 import { Link } from '@/components/Link';
+import Image from 'next/image';
 import React, { useState } from 'react';
 
 interface ProjectImageProps {
@@ -40,12 +41,13 @@ const ProjectImage: React.FC<ProjectImageProps> = ({ item, idx }) => {
               margin: 0,
             }}
           >
-            <img
+            <Image
               onMouseEnter={() => hoverEnter(idx)}
               onMouseLeave={() => hoverLeave(idx)}
               src={item.picture}
               alt={item.name}
               width={450}
+              height={240}
               style={{
                 transition: 'transform 0.3s',
                 transform: isHover && idx === id ? 'translateY(-20px)': '',              

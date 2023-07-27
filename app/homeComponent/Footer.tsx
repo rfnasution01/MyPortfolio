@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Section } from '../../components/Section';
 import { Link } from '../../components/Link';
-import { SvgIcon } from '@/components/SvgIcon';
+import Image from 'next/image';
 
 const Footer = () => {
   const [hoverState, setHoverState] = useState({
@@ -45,7 +45,7 @@ const Footer = () => {
           opacity: hoverState.in ? '0.5' : '1',
         }}
       >
-        <SvgIcon src="/linkedin.svg" alt="Linkedin" />
+        <Image src="/linkedin.svg" alt="Linkedin" width={32} height={32} />
       </Link>
 
       <Link 
@@ -58,7 +58,7 @@ const Footer = () => {
           opacity: hoverState.wa ? '0.5' : '1',
         }}
       >
-        <SvgIcon src="/whatsapp.svg" alt="Whatsapp" />
+        <Image src="/whatsapp.svg" alt="Whatsapp" width={32} height={32} />
       </Link>
     </Section>
   );

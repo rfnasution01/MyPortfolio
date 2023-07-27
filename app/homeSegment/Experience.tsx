@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { listExperience } from './ListExperience'
 import { H4 } from '@/components/headings'
+import Image from 'next/image'
 
 const Experience = () => {
     const [isHover, setIsHover] = useState(false);
@@ -44,17 +45,13 @@ const Experience = () => {
                     }}
                     key={idx}
                 >
-                    <img 
+                    <Image 
                         src={item.picture}
                         alt={item.title}
                         width={52}
-
+                        height={52}
                     />
-                    <div
-                        style={{
-                            
-                        }}
-                    >
+                    <div>
                         <H4
                             style={{
                                 fontFamily: 'serif',

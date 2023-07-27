@@ -4,6 +4,7 @@ import { Figure } from "@/components/Figure"
 import { Paragraph } from "@/components/Paragraph"
 import { Section } from "@/components/Section"
 import { H2, H5 } from "@/components/headings"
+import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 
@@ -20,9 +21,11 @@ export default function Error({
       <body>
         <Section>
           <Figure>
-            <img 
+            <Image
               src="/server-error.png" 
               alt="500 Server Error"
+              width={300}
+              height={300}
               style={{
                 borderRadius: '10px',
                 width: '500px',
@@ -49,7 +52,7 @@ export default function Error({
               onMouseLeave={()=>setIsHover(false)}
               onClick={() => reset()}
             >
-              <img src='/home.svg' alt="Back to home" />
+              <Image src='/home.svg' alt="Back to home" width={20} height={20} />
               <H5
                 style={{
                   color: isHover ? '#fffff0': '#fff',

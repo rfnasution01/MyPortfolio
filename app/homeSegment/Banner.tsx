@@ -4,6 +4,7 @@ import { Figure } from '@/components/Figure'
 import { H2, H3, H4 } from '@/components/headings'
 import React, { useState } from 'react'
 import { listProject } from './ListDetailProfile'
+import Image from 'next/image'
 
 const Banner = () => {
   const [isHover, setIsHover] = useState(false);
@@ -32,7 +33,7 @@ const Banner = () => {
       }}
     >
       <Figure>
-        <img src="/profile.jpeg" alt="Rivai Fansuri Nasution" />
+        <Image src="/profile.jpeg" alt="Rivai Fansuri Nasution" width={200} height={180} />
       </Figure>
       <H2
         style={{
