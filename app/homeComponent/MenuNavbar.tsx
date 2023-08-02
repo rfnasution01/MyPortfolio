@@ -6,14 +6,6 @@ export type MenuNavbar = {
     {
         name: "Home",
         links: "/",
-    },
-    {
-        name: "About",
-        links: "/about",
-    },
-    {
-        name: "Resume",
-        links: "/resume",
-    },  
+    }
 ];
   

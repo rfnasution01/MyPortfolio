@@ -30,7 +30,6 @@ const Banner = () => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        border: '1px solid red'
       }}
     >
       <Figure>
