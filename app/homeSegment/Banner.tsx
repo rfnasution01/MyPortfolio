@@ -30,6 +30,7 @@ const Banner = () => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        border: '1px solid red'
       }}
     >
       <Figure>
@@ -41,7 +42,8 @@ const Banner = () => {
           fontStyle: 'normal',
           lineHeight: '130%',
           letterSpacing: '1px',
-          color: '#5c5c5c'
+          color: '#5c5c5c',
+          textAlign: 'center',
         }}
       >I&apos;m Rivai Fansuri Nasution</H2>
       <h3
@@ -56,6 +58,7 @@ const Banner = () => {
       <div
         style={{
           display: 'flex',
+          flexWrap: 'wrap',
           alignItems: 'center',
           justifyContent: 'center',
           marginTop: '20px',

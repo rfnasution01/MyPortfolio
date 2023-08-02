@@ -1,6 +1,6 @@
 import { Link } from '@/components/Link';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface ProjectImageProps {
     item: ProjectItem;
@@ -16,6 +16,23 @@ interface ProjectItem {
 const ProjectImage: React.FC<ProjectImageProps> = ({ item, idx }) => {
     const [isHover, setIsHover] = useState(false);
     const [id, setId] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+      const handleResize = () => {
+        const screenWidth = window.innerWidth;
+
+        setIsMobile(screenWidth < 1000);
+      };
+
+      handleResize();
+
+      window.addEventListener('resize', handleResize);
+
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
 
     const hoverEnter = (id: number) => {
         setIsHover(true)
@@ -46,8 +63,8 @@ const ProjectImage: React.FC<ProjectImageProps> = ({ item, idx }) => {
               onMouseLeave={() => hoverLeave(idx)}
               src={item.picture}
               alt={item.name}
-              width={450}
-              height={240}
+              width= {isMobile ? 350: 450} 
+              height={isMobile ? 180: 240}
               style={{
                 transition: 'transform 0.3s',
                 transform: isHover && idx === id ? 'translateY(-20px)': '',              
